@@ -9,6 +9,7 @@ import {
   patchComment
 } from './controllers'
 import makeCallback from './express-callback'
+import productController from './controllers/productController'
 
 dotenv.config()
 
@@ -26,11 +27,12 @@ app.delete(`${apiRoot}/comments`, makeCallback(deleteComment))
 app.patch(`${apiRoot}/comments/:id`, makeCallback(patchComment))
 app.patch(`${apiRoot}/comments`, makeCallback(patchComment))
 app.get(`${apiRoot}/comments`, makeCallback(getComments))
+app.get(`/products`, productController.listProducts)
 app.use(makeCallback(notFound))
 
 
   // listen for requests
-  app.listen(3000, () => {
+  app.listen(3048, () => {
     console.log('Server is listening on port 3000')
   })
 

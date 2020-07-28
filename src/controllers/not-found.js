@@ -4,6 +4,6 @@ export default async function notFound () {
       'Content-Type': 'application/json'
     },
     body: { error: 'Not found.' },
-    statusCode: 404
+    statusCode: 410
   }
 }
