@@ -7,10 +7,11 @@ import {
 import { getProductById, addTableRow } from "../data-access/product-db";
 export default {
   listProducts: async (req, res) => {
+    const parameters = req.query;
     const getProductsbyId = makeGetProduct(getProductById);
     const listProduct = makeListProduct(getProductsbyId);
     try {
-      const result = await listProduct();
+      const result = await listProduct(parameters.id);
       res.send(result);
     } catch (error) {
       console.log(JSON.stringify(error.stack));

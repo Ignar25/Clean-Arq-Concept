@@ -9,12 +9,9 @@ db.defaults({ products: [] }).write();
 
 const productAdb = {
   getProductById: (id) => {
-    return {
-      id: "1",
-      name: "Toke",
-      description: "tokeaaaaa",
-      date: new Date().setTime(1596033494),
-    };
+    console.log("id", id)
+    let product = db.get("products").find({ id }).value();
+    return product;
   },
   addProduct: (product) => {
     db.get("products").push(product).write();

@@ -1,7 +1,7 @@
 const productService = {
-  makeGetProduct: (adb) => {
+  makeGetProduct: (getProductById) => {
     return async function getProducts(id) {
-      const getProduct = await adb(id);
+      const getProduct = await getProductById(id);
       return getProduct;
     };
   },
