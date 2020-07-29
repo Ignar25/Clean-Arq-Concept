@@ -4,7 +4,7 @@ import {
   makeGetProduct,
   makeGetAddedProduct,
 } from "../interface/productService";
-import { getProductById } from "../data-access/product-db";
+import { getProductById, addTableRow } from "../data-access/product-db";
 export default {
   listProducts: async (req, res) => {
     const getProductsbyId = makeGetProduct(getProductById);
@@ -22,10 +22,10 @@ export default {
   },
   addProduct: async (req, res) => {
     const body = req.body;
-    const addProduct = makeAddProduct(body);
-    const listProduct = makeGetAddedProduct(addProduct);
+    const createProduct = makeGetAddedProduct(addTableRow);
+    const addProduct = makeAddProduct(createProduct);
     try {
-      const result = await listProduct();
+      const result = await addProduct(req.body);
       res.send(result);
     } catch (error) {
       console.log(JSON.stringify(error.stack));

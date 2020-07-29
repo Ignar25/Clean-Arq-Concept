@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "nodemonConfig": {
+    "ignore": ["*.json"]
+ },
   "scripts": {
     "build": "npm run clean && babel src -d dist",
     "now-build": "npm run build",
     "clean": "rimraf dist",
     "db": "babel-node ./db/index.js",
     "dev": "nodemon --exec babel-node ./src/index.js",
+    "dev2": "nodemon --exec babel-node ./src/index.js",
     "start": "npm run clean && npm run build && npm run db && cd dist && node index.js",
     "test": "jest src --watch",
     "test:e2e": "jest ./__test__ --runInBand"
@@ -30,6 +34,7 @@
     "express": "^4.16.4",
     "ip-regex": "^4.0.0",
     "is-valid-email": "0.0.4",
+    "lowdb": "^1.0.0",
     "mongodb": "^3.1.13",
     "p-reduce": "^2.0.0",
     "sanitize-html": "^1.20.0"

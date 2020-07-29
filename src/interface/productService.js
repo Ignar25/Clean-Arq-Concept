@@ -5,15 +5,15 @@ const productService = {
       return getProduct;
     };
   },
-  makeGetAddedProduct: (adb) => {
+  makeGetAddedProduct: (addTableRow) => {
     return async function addProduct(product) {
-      const postProduct = await adb(product);
       const productObj = {
-        id: postProduct.getId(),
-        name: postProduct.getName(),
-        description: postProduct.getDescription(),
-        date: postProduct.getDate(),
+        id: product.getId(),
+        name: product.getName(),
+        description: product.getDescription(),
+        date: product.getDate().getTime(),
       }
+      const postProduct = await addTableRow("products", productObj);
       return productObj;
     };
   },

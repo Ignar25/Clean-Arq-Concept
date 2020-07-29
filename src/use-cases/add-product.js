@@ -1,9 +1,9 @@
 import makeProduct from "../entities/product";
-export default function makeAddProduct(productToAdd) {
-  return async function addProduct() {
-    const product = makeProduct(productToAdd);
+export default function makeAddProduct(createProduct) {
+  return async function addProduct(jsonProduct) {
+    const product = makeProduct(jsonProduct);
     if (product) {
-      return product;
+      return createProduct(product);
     }
     throw new Error("No product to add");
   };

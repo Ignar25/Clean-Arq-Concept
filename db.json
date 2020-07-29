@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Toke",
+      "description": "tokeaaaaa",
+      "date": 1596044528104
+    },
+    {
+      "id": "2",
+      "name": "Este es otro nombre",
+      "description": "esta es una prueba para la base de datos",
+      "date": 1596044524000
+    }
+  ],
+  "users": []
+}
