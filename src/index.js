@@ -30,11 +30,9 @@ app.get(`${apiRoot}/comments`, makeCallback(getComments))
 app.get(`/products`, productController.listProducts)
 app.use(makeCallback(notFound))
 
-
-  // listen for requests
-  app.listen(3048, () => {
-    console.log('Server is listening on port 3000')
-  })
-
+// listen for requests
+app.listen(3048, () => {
+  console.log('Server is listening on port 3048')
+})
 
 export default app

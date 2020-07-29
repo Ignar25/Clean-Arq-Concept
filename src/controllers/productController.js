@@ -8,8 +8,10 @@ export default { listProducts: async (req, res) => {
     const result = await listProduct()
     res.send(result)
   } catch (error) {
+    console.log(JSON.stringify(error.stack))
     res.status(500).send({
-      message: 'Error'
+      message: 'Error',
+      error
     })
   }
 } }
