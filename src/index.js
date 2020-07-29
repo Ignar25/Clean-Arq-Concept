@@ -9,7 +9,8 @@ app.use((_, res, next) => {
   res.set({ Tk: "!" });
   next();
 });
-app.get(`/products`, productController.listProducts);
+app.get("/products", productController.listProducts);
+app.post("/products", productController.addProduct);
 
 // listen for requests
 app.listen(3048, () => {
