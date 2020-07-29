@@ -1,8 +1,12 @@
 module.exports = {
-  extends: 'standard',
   env: {
-    jest: true,
+    es2020: true,
     node: true,
-    mongo: true
-  }
-}
+  },
+  extends: ["airbnb-base"],
+  parserOptions: {
+    ecmaVersion: 11,
+    sourceType: "module",
+  },
+  rules: {},
+};
